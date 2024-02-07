@@ -6,7 +6,7 @@ import About from './components/About';
 import React, { useState } from 'react'
 import Alert from './components/Alert';
 import {
-  BrowserRouter,
+  HashRouter,
   Route,
   Routes,
 } from "react-router-dom";
@@ -44,16 +44,16 @@ function App() {
     <>
       
       
-      <div>
+      <div className="container-fluid">
       
-        <BrowserRouter>
+        <HashRouter>
         <Navbar title="Kiran Kumar Reddy" mode={mode} changeMode={changeMode}></Navbar>
         <Alert alert={alert} />
           <Routes>
-            <Route index element={<TextForm showAlert={showAlert} heading="Enter the text" mode={mode} />} />
             <Route path="/about" element={<About />} />
+            <Route path="/" element={<TextForm showAlert={showAlert} heading="Enter the text" mode={mode} />} />
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
       </div>
 
     </>
