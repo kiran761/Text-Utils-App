@@ -43,10 +43,12 @@ function App() {
   return (
     <>
       
-      <Alert alert={alert} />
-      <div className="container">
+      
+      <div>
+      
         <BrowserRouter>
         <Navbar title="Kiran Kumar Reddy" mode={mode} changeMode={changeMode}></Navbar>
+        <Alert alert={alert} />
           <Routes>
             <Route index element={<TextForm showAlert={showAlert} heading="Enter the text" mode={mode} />} />
             <Route path="/about" element={<About />} />
