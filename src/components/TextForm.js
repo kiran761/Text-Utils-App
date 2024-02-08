@@ -7,6 +7,7 @@ export default function TextForm(props) {
         // console.log("Button was clicked");
         let newText = text.toUpperCase();
         setText(newText);
+        if(text.length!==0)
         props.showAlert("Converted to Upper Case","success")
     }
 
@@ -14,6 +15,8 @@ export default function TextForm(props) {
         // console.log("Button was clicked");
         let newText = text.toLowerCase();
         setText(newText);
+        if(text.length!==0)
+        props.showAlert("Converted to Lower Case","success")
     }
 
     const handleOnChange = (event) => {
@@ -23,8 +26,11 @@ export default function TextForm(props) {
     }
     const handleClear = () => {
         // console.log("Button was clicked");
+        if(text.length >0){
         let newText = "";
         setText(newText);
+        props.showAlert("Text Cleared","success")
+        }
     }
 
     const wordCount =(text)=>{
