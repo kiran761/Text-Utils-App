@@ -1,75 +1,64 @@
-import React, { useState } from 'react'
+// import React, { useState } from 'react'
 
-export default function About() {
-    const [myStyle, setMyStyle] = useState({
-        color: 'black',
-        backgroundColor: 'white'
-    })
+export default function About(props) {
+    // const [myStyle, setMyStyle] = useState({
+    //     color: 'black',
+    //     backgroundColor: 'white'
+    // })
 
-    const [myBtn,setMyBtn] =useState("Enable Dark Mode")
+    let myStyle={
+        color:props.mode === 'dark' ? 'white':'#042743' ,
+        backgroundColor : props.mode === 'dark' ? '#042743': 'white',
+        
+        
+       }
 
-    const toggleStyle = () => {
-        if (myStyle.color == 'black') {
-            setMyStyle({
-                color: 'white',
-                backgroundColor: 'black'
-            })
-            
-            setMyBtn("Enable Light Mode")
-        }
-        else {
-            setMyStyle({
-                color: 'black',
-                backgroundColor: 'white'
-            })
-            setMyBtn("Enable Dark Mode")
-        }
-    }
 
     return (
         <>
-            <div classNameName="container mx-2" style={myStyle} >
-                <h1 className=" mx-2">About Us</h1>
-                <div className="accordion" id="accordionPanelsStayOpenExample" >
+            <div className="container" style={myStyle} >
+                <h1 className=" my-3 ">About Us</h1>
+                <div className="accordion px-2 py-2" id="accordionPanelsStayOpenExample" >
                     <div className="accordion-item">
                         <h2 className="accordion-header">
                             <button className="accordion-button" style={myStyle} type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-                                Accordion Item #1
+                               <strong> Upper Text</strong>
                             </button>
                         </h2>
-                        <div id="panelsStayOpen-collapseOne" className="accordion-collapse collapse show">
+                        <div id="panelsStayOpen-collapseOne" className="accordion-collapse collapse ">
                             <div className="accordion-body" style={myStyle}>
-                                <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                            </div>
+                                Converts all characters in the text to uppercase.
+                                    Useful for standardizing text or emphasizing certain words or phrases.
+                                 </div>
                         </div>
                     </div>
                     <div className="accordion-item">
                         <h2 className="accordion-header">
                             <button className="accordion-button collapsed" style={myStyle} type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-                                Accordion Item #2
+                            <strong> Lower Text</strong>
                             </button>
                         </h2>
                         <div id="panelsStayOpen-collapseTwo" className="accordion-collapse collapse">
                             <div className="accordion-body" style={myStyle}>
-                                <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                Converts all characters in the text to lowercase.
+                                    Useful for standardizing text or making it more readable.
                             </div>
                         </div>
                     </div>
                     <div className="accordion-item">
                         <h2 className="accordion-header" >
                             <button className="accordion-button collapsed" style={myStyle} type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
-                                Accordion Item #3
+                                <strong> TextUtils Free to Use</strong>
                             </button>
                         </h2>
                         <div id="panelsStayOpen-collapseThree" className="accordion-collapse collapse">
                             <div className="accordion-body" style={myStyle}>
-                                <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                With Text Utils, users can quickly and efficiently modify text to suit their needs. Whether it's transforming text to uppercase or lowercase, or cleaning it up for clarity, Text Utils provides a user-friendly solution for text manipulation tasks.
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <button className="btn btn-primary my-3 " onClick={toggleStyle} >{myBtn}</button>
         </>
     )
 }

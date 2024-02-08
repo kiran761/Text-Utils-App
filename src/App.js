@@ -28,29 +28,26 @@ function App() {
   const changeMode = () => {
     if (mode === "light") {
       setMode("dark");
-      document.body.style.backgroundColor = '#043a66  ';
+      document.body.style.backgroundColor = '#042743';
       showAlert("Dark Mode is Enabled", "success");
-      document.title = "TextUtils - DarkMode";
     }
     else {
       setMode("light");
       document.body.style.backgroundColor = 'white';
       showAlert("Light Mode is Enabled", "success");
-      document.title = "TextUtils - LightMode";
-
     }
   }
   return (
     <>
       
       
-      <div className="container-fluid">
+      <div className="container-fluid px-0">
       
         <HashRouter>
         <Navbar title="Kiran Kumar Reddy" mode={mode} changeMode={changeMode}></Navbar>
         <Alert alert={alert} />
           <Routes>
-            <Route path="/about" element={<About />} />
+            <Route path="/about" element={<About mode={mode} />} />
             <Route path="/" element={<TextForm showAlert={showAlert} heading="Enter the text" mode={mode} />} />
           </Routes>
         </HashRouter>
