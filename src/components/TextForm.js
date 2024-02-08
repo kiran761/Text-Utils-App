@@ -48,7 +48,7 @@ export default function TextForm(props) {
             <div className="container my-3" style={{color:props.mode==='dark'?'white':'black'}}>
                 <h2>Your Text Summary</h2>
                 <p>There are {text===""? 0 : wordCount(text)} words and {text.length} characters.</p>
-                <p>You ll need around {0.08 * text.split(" ").length} minutes to read.</p>
+                <p>You ll need around {0.08 * (text===""? 0 : wordCount(text))} minutes to read.</p>
                 <h2>
                     Preview
                 </h2>
